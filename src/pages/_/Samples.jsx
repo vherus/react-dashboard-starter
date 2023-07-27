@@ -1,4 +1,6 @@
+import { useState } from "react"
 import ColourCard from "../../components/card/ColourCard"
+import DraggableCards from "../../components/card/draggable/DraggableCards"
 import Image from "../../components/image/Image"
 import Column from "../../components/layout/grid/Column"
 import Row from "../../components/layout/grid/Row"
@@ -8,6 +10,12 @@ import ProgressBars from "./ProgressBars"
 import Tables from "./Tables"
 
 const Samples = () => {
+    const [dCards, setDCards] = useState([
+        { id: 1, name: 'Draggable One', content: 'This is a draggable card!' },
+        { id: 2, name: 'Draggable Two', content: 'This is a draggable card!' },
+        { id: 3, name: 'Draggable Three', content: 'This is a draggable card!' }
+    ])
+
     return (
         <>
             <Buttons />
@@ -79,6 +87,12 @@ const Samples = () => {
 
                 <Column span={4} className='mb-4'>
                     <Image style={{ width: '25rem'}} src="/img/undraw_posting_photo.svg" alt='...' />
+                </Column>
+            </Row>
+
+            <Row>
+                <Column span={10} className='mb-4'>
+                    <DraggableCards data={dCards} setData={setDCards} />
                 </Column>
             </Row>
         </>

@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Card from "../../components/card/Card"
 import ColourCard from "../../components/card/ColourCard"
 import Image from "../../components/image/Image"
@@ -5,8 +6,15 @@ import Column from "../../components/layout/grid/Column"
 import Row from "../../components/layout/grid/Row"
 import PageHeader from "../../components/pageHeader/PageHeader"
 import ProgressBar from "../../components/progress/ProgressBar"
+import DraggableCards from "../../components/card/draggable/DraggableCards"
 
 const Dashboard = () => {
+    const [categories, setCategories] = useState([
+        { id: 1, name: 'Fixed Expenses', content: 'Rent' },
+        { id: 2, name: 'Variable Expenses', content: 'Grocery' },
+        { id: 3, name: 'Investments', content: 'Rainy day' }
+    ])
+
     return (
         <>
             <PageHeader text='Dashboard'>
@@ -14,6 +22,12 @@ const Dashboard = () => {
                     <i className="fas fa-download fa-sm text-white-50"></i> Generate Report
                 </a>
             </PageHeader>
+
+            <Row>
+                <Column span={9} className='mb-4'>
+                    <DraggableCards setData={setCategories} data={categories} />
+                </Column>
+            </Row>
 
             <Row>
                 <Column span={9} className='mb-4'>
