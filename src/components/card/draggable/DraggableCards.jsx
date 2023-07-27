@@ -50,15 +50,15 @@ const DraggableCards = ({ data, setData, allowHorizontal = false }) => {
     )
 
     const handleDragEnd = (event) => {
-        const {active, over} = event;
+        const {active, over} = event
         
         if (active.id !== over.id) {
             setData((items) => {
                 const ids = items.map(item => item.id)
-                const oldIndex = ids.indexOf(active.id);
-                const newIndex = ids.indexOf(over.id);
+                const oldIndex = ids.indexOf(active.id)
+                const newIndex = ids.indexOf(over.id)
             
-            return arrayMove(items, oldIndex, newIndex);
+            return arrayMove(items, oldIndex, newIndex)
           });
         }
     }
