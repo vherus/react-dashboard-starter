@@ -11,7 +11,7 @@ const App = () => {
             <Routes>
                 <Route path='sign-in' element={<Login/>}/>
 
-                {process.env.REACT_APP_ENVIRONMENT === 'dev' && <Route path='_/samples' element={<Samples/>}/>}
+                {import.meta.env.MODE === 'development' && <Route path='_/samples' element={<Samples/>}/>}
 
                 <Route
                     index

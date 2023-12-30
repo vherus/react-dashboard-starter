@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
     const { user } = useAuth()
     const location = useLocation()
 
-    if (!user && process.env.REACT_APP_ENVIRONMENT !== 'dev') {
+    if (!user && import.meta.env.MODE !== 'development') {
         return <Navigate to='/sign-in' replace state={{ from: location }} />
     }
 

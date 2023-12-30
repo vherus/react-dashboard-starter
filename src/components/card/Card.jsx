@@ -31,7 +31,7 @@ const Card = ({ header, children, collapsable = false, dropdownItems = [], shado
             }
 
             {collapsable && 
-                <div class="collapse show" id={`${id}`}>
+                <div className="collapse show" id={`${id}`}>
                     <div className="card-body">
                         {children}
                     </div>
